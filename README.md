@@ -11,7 +11,7 @@ Install packages -
 `scipy==1.4.1`
 
 To train first,
-Download dataset from -   and put them on root directory
+Download dataset from - https://mega.nz/folder/DoAGwZ7A#-X6SwDi1O9NhzQF3W7ihWQ  and put them on root directory or Local Disk C.
 
 
 To run, directly open `detect_mask_video.py` after putting bolt credentials on `conf.py`
