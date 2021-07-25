@@ -14,4 +14,4 @@ To train first,
 Download dataset from -   and put them on root directory
 
 
-To run, directly open `detect_mask_video.py` after putting bolt credentials
+To run, directly open `detect_mask_video.py` after putting bolt credentials on `conf.py`
