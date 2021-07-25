@@ -11,22 +11,22 @@ import time
 import cv2
 import os
 
-import sms_conf, tele_conf, bolt_conf
+import conf
 from boltiot import Sms, Bolt
 import json, requests
 
 
-mybolt = Bolt(bolt_conf.API_KEY, bolt_conf.DEVICE_ID)
-sms = Sms(sms_conf.SID, sms_conf.AUTH_TOKEN, sms_conf.TO_NUMBER, sms_conf.FROM_NUMBER)
+mybolt = Bolt(conf.API_KEY, conf.DEVICE_ID)
+
 
 killer = 0
 check = 0
 
 def send_telegram_message(message):
 	"""Sends message via Telegram"""
-	url = "https://api.telegram.org/" + tele_conf.telegram_bot_id + "/sendMessage"
+	url = "https://api.telegram.org/" + conf.telegram_bot_id + "/sendMessage"
 	data = {
-		"chat_id": tele_conf.telegram_chat_id,
+		"chat_id": conf.telegram_chat_id,
 		"text": message
 	}
 	try:
