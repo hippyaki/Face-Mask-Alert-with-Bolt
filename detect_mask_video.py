@@ -22,31 +22,6 @@ mybolt = Bolt(conf.API_KEY, conf.DEVICE_ID)
 killer = 0
 check = 0
 
-def send_telegram_message(message):
-	"""Sends message via Telegram"""
-	url = "https://api.telegram.org/" + conf.telegram_bot_id + "/sendMessage"
-	data = {
-		"chat_id": conf.telegram_chat_id,
-		"text": message
-	}
-	try:
-		response_tele = requests.request(
-			"POST",
-			url,
-			params=data
-		)
-	  #  print("This is the Telegram URL")
-	  #  print(url)
-	  #  print("This is the Telegram response")
-	  #  print(response_tele.text)
-		telegram_data = json.loads(response_tele.text)
-		return telegram_data["ok"]
-	except Exception as e:
-		print("An error occurred in sending the alert message via Telegram")
-		print(e)
-		return False
-
-
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	# grab the dimensions of the frame and then construct a blob
 	# from it
@@ -117,7 +92,7 @@ faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 # load the face mask detector model from disk
 maskNet = load_model("mask_detector.model")
 
-mybolt.digitalWrite(2,"HIGH")
+mybolt.digitalWrite(2,"HIGH") #GREEN Light
 
 # initialize the video stream
 print("[INFO] starting video stream...")
